@@ -10,20 +10,22 @@
 		B667873F260367C300DDE49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667873E260367C300DDE49A /* AppDelegate.swift */; };
 		B6678741260367C300DDE49A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6678740260367C300DDE49A /* SceneDelegate.swift */; };
 		B6678743260367C300DDE49A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6678742260367C300DDE49A /* ViewController.swift */; };
-		B6678746260367C300DDE49A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6678744260367C300DDE49A /* Main.storyboard */; };
 		B6678748260367C300DDE49A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6678747260367C300DDE49A /* Assets.xcassets */; };
 		B667874B260367C300DDE49A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6678749260367C300DDE49A /* LaunchScreen.storyboard */; };
+		D3216EBD3D7C9DE70965F8BD /* Pods_Axxess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDF566B1F146E7881CA5394 /* Pods_Axxess.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E17780C4B16E2742B671A28 /* Pods-Axxess.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Axxess.release.xcconfig"; path = "Target Support Files/Pods-Axxess/Pods-Axxess.release.xcconfig"; sourceTree = "<group>"; };
+		0EDF566B1F146E7881CA5394 /* Pods_Axxess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Axxess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B667873B260367C300DDE49A /* Axxess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Axxess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B667873E260367C300DDE49A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6678740260367C300DDE49A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B6678742260367C300DDE49A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B6678745260367C300DDE49A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6678747260367C300DDE49A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B667874A260367C300DDE49A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B667874C260367C300DDE49A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA1B23B4F1E7538FD964950F /* Pods-Axxess.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Axxess.debug.xcconfig"; path = "Target Support Files/Pods-Axxess/Pods-Axxess.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3216EBD3D7C9DE70965F8BD /* Pods_Axxess.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +45,8 @@
 			children = (
 				B667873D260367C300DDE49A /* Axxess */,
 				B667873C260367C300DDE49A /* Products */,
+				D04AE7A525FABF3049186903 /* Pods */,
+				BE71F716E2A1E17752CC00B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +61,56 @@
 		B667873D260367C300DDE49A /* Axxess */ = {
 			isa = PBXGroup;
 			children = (
-				B667873E260367C300DDE49A /* AppDelegate.swift */,
-				B6678740260367C300DDE49A /* SceneDelegate.swift */,
-				B6678742260367C300DDE49A /* ViewController.swift */,
-				B6678744260367C300DDE49A /* Main.storyboard */,
-				B6678747260367C300DDE49A /* Assets.xcassets */,
-				B6678749260367C300DDE49A /* LaunchScreen.storyboard */,
-				B667874C260367C300DDE49A /* Info.plist */,
+				B66787532603685600DDE49A /* Application */,
+				B66787582603689B00DDE49A /* View Controllers */,
+				B66787562603686800DDE49A /* Resources */,
 			);
 			path = Axxess;
+			sourceTree = "<group>";
+		};
+		B66787532603685600DDE49A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B667873E260367C300DDE49A /* AppDelegate.swift */,
+				B6678740260367C300DDE49A /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B66787562603686800DDE49A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B6678749260367C300DDE49A /* LaunchScreen.storyboard */,
+				B6678747260367C300DDE49A /* Assets.xcassets */,
+				B667874C260367C300DDE49A /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B66787582603689B00DDE49A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B6678742260367C300DDE49A /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		BE71F716E2A1E17752CC00B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EDF566B1F146E7881CA5394 /* Pods_Axxess.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D04AE7A525FABF3049186903 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CA1B23B4F1E7538FD964950F /* Pods-Axxess.debug.xcconfig */,
+				0E17780C4B16E2742B671A28 /* Pods-Axxess.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +120,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B667874F260367C300DDE49A /* Build configuration list for PBXNativeTarget "Axxess" */;
 			buildPhases = (
+				496C74400EB310C0AFEF009F /* [CP] Check Pods Manifest.lock */,
 				B6678737260367C300DDE49A /* Sources */,
 				B6678738260367C300DDE49A /* Frameworks */,
 				B6678739260367C300DDE49A /* Resources */,
+				0F0633507CFBFEB63250603E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,11 +174,52 @@
 			files = (
 				B667874B260367C300DDE49A /* LaunchScreen.storyboard in Resources */,
 				B6678748260367C300DDE49A /* Assets.xcassets in Resources */,
-				B6678746260367C300DDE49A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F0633507CFBFEB63250603E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Axxess/Pods-Axxess-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Axxess/Pods-Axxess-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Axxess/Pods-Axxess-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		496C74400EB310C0AFEF009F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Axxess-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B6678737260367C300DDE49A /* Sources */ = {
@@ -146,14 +235,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B6678744260367C300DDE49A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B6678745260367C300DDE49A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B6678749260367C300DDE49A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,12 +364,14 @@
 		};
 		B6678750260367C300DDE49A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA1B23B4F1E7538FD964950F /* Pods-Axxess.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4939K9623X;
-				INFOPLIST_FILE = Axxess/Info.plist;
+				INFOPLIST_FILE = Axxess/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,12 +385,14 @@
 		};
 		B6678751260367C300DDE49A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E17780C4B16E2742B671A28 /* Pods-Axxess.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4939K9623X;
-				INFOPLIST_FILE = Axxess/Info.plist;
+				INFOPLIST_FILE = Axxess/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
