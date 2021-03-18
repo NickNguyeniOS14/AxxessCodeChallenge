@@ -3,15 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		B667873F260367C300DDE49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667873E260367C300DDE49A /* AppDelegate.swift */; };
 		B6678741260367C300DDE49A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6678740260367C300DDE49A /* SceneDelegate.swift */; };
-		B6678743260367C300DDE49A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6678742260367C300DDE49A /* ViewController.swift */; };
+		B6678743260367C300DDE49A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6678742260367C300DDE49A /* HomeViewController.swift */; };
 		B6678748260367C300DDE49A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6678747260367C300DDE49A /* Assets.xcassets */; };
 		B667874B260367C300DDE49A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6678749260367C300DDE49A /* LaunchScreen.storyboard */; };
+		B67BF61A26036CD100AE4167 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BF61926036CD100AE4167 /* Item.swift */; };
+		B6BDB2902603745800EA7579 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BDB28F2603745800EA7579 /* NetworkError.swift */; };
+		B6BDB2992603758800EA7579 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BDB2982603758800EA7579 /* ItemStore.swift */; };
+		B6BDB29F26037AD400EA7579 /* URL+ Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BDB29E26037AD400EA7579 /* URL+ Ext.swift */; };
+		B6BDB2A42603865400EA7579 /* ArrayUnique + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BDB2A32603865400EA7579 /* ArrayUnique + Ext.swift */; };
+		B6BDB2AA2603919F00EA7579 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BDB2A92603919F00EA7579 /* ItemCell.swift */; };
+		B6BDB2AF2603A6F500EA7579 /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BDB2AE2603A6F500EA7579 /* String + Ext.swift */; };
 		D3216EBD3D7C9DE70965F8BD /* Pods_Axxess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDF566B1F146E7881CA5394 /* Pods_Axxess.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,10 +28,17 @@
 		B667873B260367C300DDE49A /* Axxess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Axxess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B667873E260367C300DDE49A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6678740260367C300DDE49A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B6678742260367C300DDE49A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B6678742260367C300DDE49A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B6678747260367C300DDE49A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B667874A260367C300DDE49A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B667874C260367C300DDE49A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B67BF61926036CD100AE4167 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B6BDB28F2603745800EA7579 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		B6BDB2982603758800EA7579 /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
+		B6BDB29E26037AD400EA7579 /* URL+ Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+ Ext.swift"; sourceTree = "<group>"; };
+		B6BDB2A32603865400EA7579 /* ArrayUnique + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArrayUnique + Ext.swift"; sourceTree = "<group>"; };
+		B6BDB2A92603919F00EA7579 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		B6BDB2AE2603A6F500EA7579 /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 		CA1B23B4F1E7538FD964950F /* Pods-Axxess.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Axxess.debug.xcconfig"; path = "Target Support Files/Pods-Axxess/Pods-Axxess.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,8 +76,13 @@
 			isa = PBXGroup;
 			children = (
 				B66787532603685600DDE49A /* Application */,
-				B66787582603689B00DDE49A /* View Controllers */,
+				B67BF61C26036CD500AE4167 /* Model */,
 				B66787562603686800DDE49A /* Resources */,
+				B6BDB28D260373D300EA7579 /* Service */,
+				B66787582603689B00DDE49A /* View Controllers */,
+				B6BDB2A62603867D00EA7579 /* Model Controller */,
+				B6BDB2A12603862C00EA7579 /* Extension */,
+				B6BDB2AC260391A200EA7579 /* View */,
 			);
 			path = Axxess;
 			sourceTree = "<group>";
@@ -90,9 +109,51 @@
 		B66787582603689B00DDE49A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B6678742260367C300DDE49A /* ViewController.swift */,
+				B6678742260367C300DDE49A /* HomeViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B67BF61C26036CD500AE4167 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B67BF61926036CD100AE4167 /* Item.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B6BDB28D260373D300EA7579 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B6BDB28F2603745800EA7579 /* NetworkError.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B6BDB2A12603862C00EA7579 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B6BDB29E26037AD400EA7579 /* URL+ Ext.swift */,
+				B6BDB2A32603865400EA7579 /* ArrayUnique + Ext.swift */,
+				B6BDB2AE2603A6F500EA7579 /* String + Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		B6BDB2A62603867D00EA7579 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B6BDB2982603758800EA7579 /* ItemStore.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		B6BDB2AC260391A200EA7579 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B6BDB2A92603919F00EA7579 /* ItemCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		BE71F716E2A1E17752CC00B8 /* Frameworks */ = {
@@ -109,7 +170,6 @@
 				CA1B23B4F1E7538FD964950F /* Pods-Axxess.debug.xcconfig */,
 				0E17780C4B16E2742B671A28 /* Pods-Axxess.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -226,8 +286,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6678743260367C300DDE49A /* ViewController.swift in Sources */,
+				B6BDB29F26037AD400EA7579 /* URL+ Ext.swift in Sources */,
+				B67BF61A26036CD100AE4167 /* Item.swift in Sources */,
+				B6BDB2AF2603A6F500EA7579 /* String + Ext.swift in Sources */,
+				B6BDB2AA2603919F00EA7579 /* ItemCell.swift in Sources */,
+				B6678743260367C300DDE49A /* HomeViewController.swift in Sources */,
 				B667873F260367C300DDE49A /* AppDelegate.swift in Sources */,
+				B6BDB2902603745800EA7579 /* NetworkError.swift in Sources */,
+				B6BDB2992603758800EA7579 /* ItemStore.swift in Sources */,
+				B6BDB2A42603865400EA7579 /* ArrayUnique + Ext.swift in Sources */,
 				B6678741260367C300DDE49A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
