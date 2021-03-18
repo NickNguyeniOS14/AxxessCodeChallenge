@@ -51,8 +51,7 @@ class ItemCell: UITableViewCell {
     private lazy var itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .red
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
@@ -61,26 +60,41 @@ class ItemCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-//        addSubview(itemTextLabel)
         addSubview(idLabel)
+        addSubview(dateLabel)
         addSubview(itemImageView)
         addSubview(itemTextLabel)
-        addSubview(dateLabel)
-//        addSubview(itemImageView)
 
+        addItemTextLabelConstraints()
+        addItemImageViewContraints()
+        addLabelsContraints()
+    }
 
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Action
+
+    func addItemTextLabelConstraints() {
         itemTextLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(snp.leading)
             make.trailing.equalTo(snp.trailing)
             make.centerY.equalTo(snp.centerY)
         }
-        itemImageView.snp.makeConstraints { (make) in
-            make.leading.equalTo(snp.leading)
-            make.trailing.equalTo(snp.trailing)
-            make.top.equalTo(snp.top)
-            make.bottom.equalTo(snp.bottom)
-        }
+    }
 
+     private func addItemImageViewContraints() {
+
+        itemImageView.snp.makeConstraints { (make) in
+            make.width.equalTo(200)
+            make.height.equalTo(200)
+            make.centerX.equalTo(snp.centerX)
+            make.centerY.equalTo(snp.centerY)
+        }
+    }
+
+     private func addLabelsContraints() {
         idLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(snp.leading)
             make.top.equalTo(snp.top)
@@ -93,49 +107,60 @@ class ItemCell: UITableViewCell {
         }
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    // MARK: - Action
-
-    func updateViews(forItem item: Item) {
+    private func updateViews(forItem item: Item) {
         switch item.type {
-            case ItemStore.ItemType.image.rawValue:
+            case ItemType.image.rawValue:
 
                 itemTextLabel.removeFromSuperview()
+                
                 addSubview(itemImageView)
 
-
-                itemImageView.snp.makeConstraints { (make) in
-                    make.leading.equalTo(snp.leading)
-                    make.trailing.equalTo(snp.trailing)
-                    make.top.equalTo(snp.top)
-                    make.bottom.equalTo(snp.bottom)
-                }
+                addItemImageViewContraints()
 
                 idLabel.text = item.id
-                dateLabel.text = item.date
+
+                dateLabel.text = item.date == "" ? "N/A" : item.date ?? "N/A"
 
                 if let urlString = item.data {
-                    let url = URL(string: urlString)!
-                    Nuke.loadImage(with: url.usingHTTPS!, into: itemImageView)
+                    let url = URL(string: urlString)!.usingHTTPS!
+
+                    let request = ImageRequest(
+                        url: url,
+                        processors: [
+                            ImageProcessors.Circle(),
+                            ImageProcessors.Resize(size: itemImageView.bounds.size)
+                        ],
+                        priority: .high
+                    )
+
+                    let options = ImageLoadingOptions(
+                        placeholder: UIImage(named: "404NoImage"),
+                        transition: .fadeIn(duration: 0.4)
+                    )
+
+                    Nuke.loadImage(with: request, options: options, into: itemImageView) { response in
+                        switch response {
+                            case .success(let imageResponse):
+                                self.itemImageView.image = imageResponse.image
+                            case .failure(let error):
+                                print(error)
+                        }
+                    }
                 }
 
             default:
 
                 itemImageView.removeFromSuperview()
+
                 addSubview(itemTextLabel)
-                itemTextLabel.snp.makeConstraints { (make) in
-                    make.leading.equalTo(snp.leading)
-                    make.trailing.equalTo(snp.trailing)
-                    make.centerY.equalTo(snp.centerY)
-                }
+
+                addItemTextLabelConstraints()
 
                 itemTextLabel.text = item.data?.trunc(length: 100).trimmingCharacters(in: .whitespacesAndNewlines)
+
                 idLabel.text = item.id
+                
                 dateLabel.text = item.date
         }
-
     }
 }

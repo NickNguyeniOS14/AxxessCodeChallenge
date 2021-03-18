@@ -78,7 +78,7 @@
 				B66787532603685600DDE49A /* Application */,
 				B67BF61C26036CD500AE4167 /* Model */,
 				B66787562603686800DDE49A /* Resources */,
-				B6BDB28D260373D300EA7579 /* Service */,
+				B6BDB28D260373D300EA7579 /* NetworkError */,
 				B66787582603689B00DDE49A /* View Controllers */,
 				B6BDB2A62603867D00EA7579 /* Model Controller */,
 				B6BDB2A12603862C00EA7579 /* Extension */,
@@ -122,12 +122,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B6BDB28D260373D300EA7579 /* Service */ = {
+		B6BDB28D260373D300EA7579 /* NetworkError */ = {
 			isa = PBXGroup;
 			children = (
 				B6BDB28F2603745800EA7579 /* NetworkError.swift */,
 			);
-			path = Service;
+			path = NetworkError;
 			sourceTree = "<group>";
 		};
 		B6BDB2A12603862C00EA7579 /* Extension */ = {

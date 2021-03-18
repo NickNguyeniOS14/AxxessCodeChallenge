@@ -8,15 +8,15 @@
 import Foundation
 import Alamofire
 
+enum ItemType: String, CaseIterable {
+    case text
+    case image
+    case other
+}
+
 class ItemStore {
 
     // MARK: - Properties
-
-    enum ItemType: String, CaseIterable {
-        case text
-        case image
-        case other
-    }
 
     private let endpoint = "https://raw.githubusercontent.com/AxxessTech/Mobile-Projects/master/challenge.json"
 

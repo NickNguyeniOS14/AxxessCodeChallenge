@@ -18,7 +18,7 @@ class HomeViewController: UITableViewController {
     let itemStore = ItemStore()
 
     lazy var segmentedControl: UISegmentedControl = {
-        let segmentedItems = ItemStore.ItemType.allCases.map { $0.rawValue.uppercased() }
+        let segmentedItems = ItemType.allCases.map { $0.rawValue.capitalized }
         let sc = UISegmentedControl(items: segmentedItems)
         sc.addTarget(self, action: #selector(switchSegmentControl), for: .valueChanged)
         sc.selectedSegmentIndex = 0
@@ -35,21 +35,6 @@ class HomeViewController: UITableViewController {
         }
     }
 
-    func setUpUI() {
-        navigationItem.title = "Axxess"
-        tableView.tableHeaderView = segmentedControl
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(ItemCell.self, forCellReuseIdentifier: ItemCell.cellIdentifier)
-        tableView.rowHeight = 200
-        tableView.tableFooterView = UIView()
-    }
-
-
-    @objc func switchSegmentControl(item: UISegmentedControl) {
-        print(item.selectedSegmentIndex)
-        tableView.reloadData()
-    }
-
     // MARK: - Table View DataSource & Delegate
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,21 +46,33 @@ class HomeViewController: UITableViewController {
             default:
                 return itemStore.otherItems.count
         }
-
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.cellIdentifier, for: indexPath) as! ItemCell
 
-        cell.item = getItem(for: indexPath)
+        cell.item = getItem(at: indexPath)
 
         return cell
     }
 
-    // MARK: - Helper function
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
-    func getItem(for indexPath: IndexPath) -> Item {
+    // MARK: - Actions
+
+    func setUpUI() {
+        navigationItem.title = "Axxess"
+        tableView.tableHeaderView = segmentedControl
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(ItemCell.self, forCellReuseIdentifier: ItemCell.cellIdentifier)
+        tableView.rowHeight = 300
+        tableView.tableFooterView = UIView()
+    }
+
+    func getItem(at indexPath: IndexPath) -> Item {
         let item: Item
         switch segmentedControl.selectedSegmentIndex {
             case 0:
@@ -88,7 +85,7 @@ class HomeViewController: UITableViewController {
         return item
     }
 
-    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+    @objc func switchSegmentControl(segmentedControl: UISegmentedControl) {
+        tableView.reloadData()
     }
 }
