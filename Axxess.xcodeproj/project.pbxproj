@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B645F5752604BB6500B71671 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645F5742604BB6500B71671 /* Utility.swift */; };
+		B645F5822604C0D900B71671 /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645F5812604C0D900B71671 /* UIViewController + Ext.swift */; };
 		B667873F260367C300DDE49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667873E260367C300DDE49A /* AppDelegate.swift */; };
 		B6678741260367C300DDE49A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6678740260367C300DDE49A /* SceneDelegate.swift */; };
 		B6678743260367C300DDE49A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6678742260367C300DDE49A /* HomeViewController.swift */; };
@@ -29,6 +30,7 @@
 		0E17780C4B16E2742B671A28 /* Pods-Axxess.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Axxess.release.xcconfig"; path = "Target Support Files/Pods-Axxess/Pods-Axxess.release.xcconfig"; sourceTree = "<group>"; };
 		0EDF566B1F146E7881CA5394 /* Pods_Axxess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Axxess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B645F5742604BB6500B71671 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		B645F5812604C0D900B71671 /* UIViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Ext.swift"; sourceTree = "<group>"; };
 		B667873B260367C300DDE49A /* Axxess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Axxess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B667873E260367C300DDE49A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6678740260367C300DDE49A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				B6BDB29E26037AD400EA7579 /* URL+ Ext.swift */,
 				B6BDB2A32603865400EA7579 /* ArrayUnique + Ext.swift */,
 				B6BDB2AE2603A6F500EA7579 /* String + Ext.swift */,
+				B645F5812604C0D900B71671 /* UIViewController + Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				B6678743260367C300DDE49A /* HomeViewController.swift in Sources */,
 				B667873F260367C300DDE49A /* AppDelegate.swift in Sources */,
 				B645F5752604BB6500B71671 /* Utility.swift in Sources */,
+				B645F5822604C0D900B71671 /* UIViewController + Ext.swift in Sources */,
 				B6BDB2902603745800EA7579 /* NetworkError.swift in Sources */,
 				B6BDB2992603758800EA7579 /* ItemStore.swift in Sources */,
 				B6BDB2A42603865400EA7579 /* ArrayUnique + Ext.swift in Sources */,

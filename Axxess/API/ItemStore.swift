@@ -8,12 +8,6 @@
 import Foundation
 import Alamofire
 
-enum ItemType: String, CaseIterable {
-    case text
-    case image
-    case other
-}
-
 class ItemStore {
 
     // MARK: - Properties
@@ -22,27 +16,30 @@ class ItemStore {
 
     var items = [Item]()
 
-    var sections: [String] {
-        return items.map {
-            $0.type
-        }.uniques
+    var segmentedItems: [String] {
+        return ItemType.allCases.map {
+            $0.rawValue.capitalized
+        }
     }
 
     var itemsWithText: [Item] {
         return items.filter {
-            $0.type == ItemType.text.rawValue && $0.data != nil && $0.data != String()
+            $0.type == .text &&
+            $0.data != nil &&
+            $0.data != String()
         }
     }
 
     var itemsWithImage: [Item] {
         return items.filter {
-            $0.type == ItemType.image.rawValue && $0.data != nil
+            $0.type == .image &&
+            $0.data != nil
         }
     }
 
     var otherItems: [Item] {
         return items.filter {
-            $0.type == ItemType.other.rawValue
+            $0.type == .other
         }
     }
 
@@ -59,7 +56,7 @@ class ItemStore {
                 let decoder = JSONDecoder()
                 let itemsFromServer = try decoder.decode([Item].self, from: itemsData)
                 self.items = itemsFromServer
-                PersistentManager.shared.saveItemToDatabase(items: self.items)
+                PersistentManager.shared.saveItemToDatabase(items: itemsFromServer)
                 DispatchQueue.main.async {
                     completion(.success(itemsFromServer))
                 }

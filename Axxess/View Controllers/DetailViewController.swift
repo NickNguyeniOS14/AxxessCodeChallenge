@@ -62,7 +62,7 @@ class DetailViewController: UIViewController {
         itemImageView.snp.makeConstraints { (make) in
             make.centerX.equalTo(view.snp.centerX)
             make.centerY.equalTo(view.snp.centerY)
-            make.width.equalTo(view.frame.width)
+            make.width.equalTo(300)
             make.height.equalTo(300)
         }
 
@@ -81,12 +81,12 @@ class DetailViewController: UIViewController {
         itemTextView.text = item?.data?.trimmingCharacters(in: .whitespacesAndNewlines)
         dateLabel.text = item?.date == "" ? "N/A" : item?.date ?? "N/A"
         idLabel.text = item?.id
-        itemImageView.image = item?.image ?? placeHolderImage
+        itemImageView.image = item?.offlineImage ?? placeHolderImage
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if item?.type == ItemType.text.rawValue || item?.type == ItemType.other.rawValue {
+        if item?.type == .text || item?.type == .other {
             itemImageView.removeFromSuperview()
             itemTextView.snp.makeConstraints { (make) in
                 make.centerX.equalTo(view.snp.centerX)

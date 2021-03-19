@@ -18,11 +18,17 @@ class HomeViewController: UITableViewController {
     let itemStore = ItemStore()
 
     lazy var segmentedControl: UISegmentedControl = {
-        let segmentedItems = ItemType.allCases.map { $0.rawValue.capitalized }
+        let segmentedItems = itemStore.segmentedItems
         let sc = UISegmentedControl(items: segmentedItems)
         sc.addTarget(self, action: #selector(switchSegmentControl), for: .valueChanged)
         sc.selectedSegmentIndex = 0
         return sc
+    }()
+
+    lazy var spinner: UIRefreshControl = {
+        let control = UIRefreshControl()
+        control.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        return control
     }()
 
     // MARK: - View Life Cycle
@@ -32,13 +38,20 @@ class HomeViewController: UITableViewController {
 
         setUpUI()
 
+        // First launch, fetch Data from server
+
         itemStore.getItems { result in
             switch result {
                 case .success:
                     print("SUCCESS")
-
+                    // If success, save data to Realm and reload the table View
                 case .failure(let error):
-                    print(" > >>>>> FAILURE: \(error.localizedDescription)")
+                    // If fail ( no internet ), show an alert to users
+                    if self.itemStore.items.isEmpty  {
+                        self.showAlert(forError: error)
+                        break
+                    }
+                    print(" >>>>>> FAILURE: \(error.localizedDescription)")
                     self.itemStore.items = PersistentManager.shared.getItemsFromDataBase()
             }
             print(self.itemStore.items.count)
@@ -94,6 +107,7 @@ class HomeViewController: UITableViewController {
         tableView.register(ItemCell.self, forCellReuseIdentifier: ItemCell.cellIdentifier)
         tableView.rowHeight = 300
         tableView.tableFooterView = UIView()
+        tableView.refreshControl = spinner
     }
 
     private func getItem(at indexPath: IndexPath) -> Item {
@@ -111,5 +125,12 @@ class HomeViewController: UITableViewController {
 
     @objc func switchSegmentControl(segmentedControl: UISegmentedControl) {
         tableView.reloadData()
+    }
+
+    @objc func refreshData(spinner: UIRefreshControl) {
+        self.tableView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            spinner.endRefreshing()
+        }
     }
 }

@@ -9,7 +9,9 @@ import Foundation
 import RealmSwift
 
 class PersistentManager {
-    
+
+    // MARK: - Properties
+
     static let shared = PersistentManager()
 
     let realm = try! Realm()
@@ -20,15 +22,15 @@ class PersistentManager {
         }
     }
 
-    func saveItemToDatabase(items : [Item]) {
+    // MARK: - Realm Actions
 
-       deleteAllItemsFromDatabase()
+    func saveItemToDatabase(items : [Item]) {
 
         try! realm.write {
             for item in items {
                 let realmInstance = RealmItem()
                 realmInstance.id = item.id
-                realmInstance.type = item.type
+                realmInstance.type = item.type.rawValue
                 realmInstance.date = item.date
                 realmInstance.data = item.data
                 realm.add(realmInstance)
@@ -43,14 +45,14 @@ class PersistentManager {
         var items = [Item]()
 
         for realItem in realmItems {
-            let item = Item(id: realItem.id, type: realItem.type, date: realItem.date, data: realItem.data)
-            
+            let item = Item(id: realItem.id, type: ItemType(rawValue: realItem.type)!, date: realItem.date, data: realItem.data)
+
             items.append(item)
         }
         return items
     }
 
-    // Save Image to Disk for offline usage
+    // Save image to disk for offline usage
 
     func writeImageToLocalFile(image: UIImage, path: String) {
         do {
@@ -60,7 +62,7 @@ class PersistentManager {
                 try pngImageData.write(to: fileURL, options: .atomic)
             }
         } catch {
-            print(error)
+            print(error.localizedDescription)
         }
     }
 

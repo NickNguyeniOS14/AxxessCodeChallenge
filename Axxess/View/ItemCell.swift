@@ -16,7 +16,9 @@ class ItemCell: UITableViewCell {
     var item: Item? {
         didSet {
             if let item = item {
-                updateViews(forItem: item)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) {
+                    self.updateViews(forItem: item)
+                }
             }
         }
     }
@@ -69,12 +71,17 @@ class ItemCell: UITableViewCell {
         addItemImageViewContraints()
         addLabelsContraints()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     
     // MARK: - Action
+
+    override func prepareForReuse() {
+        itemImageView.image = nil
+    }
     
     func addItemTextLabelConstraints() {
         itemTextLabel.snp.makeConstraints { (make) in
@@ -108,9 +115,12 @@ class ItemCell: UITableViewCell {
     }
     
     private func updateViews(forItem item: Item) {
+
         switch item.type {
-            case ItemType.image.rawValue:
-                
+            case .image:
+
+                // If item is image type, remove the textLabel and replace with an imageView
+
                 itemTextLabel.removeFromSuperview()
                 
                 addSubview(itemImageView)
@@ -120,42 +130,16 @@ class ItemCell: UITableViewCell {
                 idLabel.text = item.id
                 
                 dateLabel.text = item.date == "" ? "N/A" : item.date ?? "N/A"
-                
-                itemImageView.image = item.image
-                if let urlString = item.data {
-                    let url = URL(string: urlString)!.usingHTTPS!
 
-                    let request = ImageRequest(
-                        url: url,
-                        processors: [
-                            ImageProcessors.Circle(),
-                            ImageProcessors.Resize(size: itemImageView.bounds.size)
-                        ],
-                        priority: .high
-                    )
+                itemImageView.image = nil
 
-                    let options = ImageLoadingOptions(
-                        placeholder: placeHolderImage,
-                        transition: .fadeIn(duration: 0.4)
-                    )
-
-                    Nuke.loadImage(with: request,
-                                   options: options,
-                                   into: itemImageView) { response in
-                        switch response {
-                            case .success(let imageResponse):
-                                self.itemImageView.image = imageResponse.image
-                                PersistentManager.shared.writeImageToLocalFile(image: imageResponse.image, path: item.id)
-                            case .failure(let error):
-                                print("NO URL IMAGE: \(error.localizedDescription)")
-                                self.itemImageView.image = item.image ?? placeHolderImage
-
-                        }
-                    }
-                }
+                updateImageViewFor(item: item)
 
             default:
                 
+                /* If item is text or other type,
+                 remove the imageView and replace with a label */
+
                 itemImageView.removeFromSuperview()
                 
                 addSubview(itemTextLabel)
@@ -167,6 +151,44 @@ class ItemCell: UITableViewCell {
                 idLabel.text = item.id
                 
                 dateLabel.text = item.date
+        }
+    }
+
+    private func updateImageViewFor(item: Item) {
+        // If this is second time launching the app, use offline image to save bandwidth
+        if let localImage = item.offlineImage  {
+            self.itemImageView.image = localImage
+        } else if let urlString = item.data {
+            // If this is the first time launching the app, download image from the Web
+            let url = URL(string: urlString)!.usingHTTPS!
+
+            let request = ImageRequest(
+                url: url,
+                processors: [
+                    ImageProcessors.Circle(),
+                    ImageProcessors.Resize(size: itemImageView.bounds.size)
+                ],
+                priority: .high
+            )
+
+            let options = ImageLoadingOptions(
+                placeholder: placeHolderImage,
+                transition: .fadeIn(duration: 0.4)
+            )
+            
+            Nuke.loadImage(with: request,
+                           options: options,
+                           into: itemImageView) { response in
+                switch response {
+                    case .success(let imageResponse):
+                        // Set itemImageView's image to the image that comes back from server and save to disk
+                        self.itemImageView.image = imageResponse.image
+                        PersistentManager.shared.writeImageToLocalFile(image: imageResponse.image, path: item.id)
+                    case .failure(let error):
+                        // Log the Bad URL error to debug
+                        print("NO URL IMAGE: \(error.localizedDescription)")
+                }
+            }
         }
     }
 }
