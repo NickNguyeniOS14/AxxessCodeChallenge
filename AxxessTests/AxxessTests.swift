@@ -13,7 +13,7 @@ class AxxessTests: XCTestCase {
 
     let itemStore = ItemStore()
 
-    // Should use mocking to test network request in production
+    // Should use mocking to test network request in production.
     
     func testForSomeResults() {
 

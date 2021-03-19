@@ -27,7 +27,7 @@ extension Item {
     }
 }
 
-// Realm Objects
+    // MARK: - Realm Objects
 
 class RealmItem: Object {
     @objc dynamic var id: String = ""

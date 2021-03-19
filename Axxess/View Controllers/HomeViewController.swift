@@ -38,15 +38,15 @@ class HomeViewController: UITableViewController {
 
         setUpUI()
 
-        // First launch, fetch data from server
+        // First launch, fetch data from server.
 
         itemStore.getItems { result in
             switch result {
                 case .success:
                     print("SUCCESS")
-                    // If success, save data to Realm and reload the table View
+                    // If success, save data to Realm and reload the table view.
                 case .failure(let error):
-                    // If fail (no internet or server down), show an alert to users
+                    // If fail (no internet or server down), show an alert to users.
                     if self.itemStore.items.isEmpty  {
                         self.showAlert(forError: error)
                         break

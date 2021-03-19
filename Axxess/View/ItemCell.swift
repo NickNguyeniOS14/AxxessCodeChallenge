@@ -119,7 +119,7 @@ class ItemCell: UITableViewCell {
         switch item.type {
             case .image:
 
-                // If item is image type, remove the textLabel and replace with an imageView
+                // If item is image type, remove the textLabel and replace with an imageView.
 
                 itemTextLabel.removeFromSuperview()
                 
@@ -138,7 +138,7 @@ class ItemCell: UITableViewCell {
             default:
                 
                 /* If item is text or other type,
-                 remove the imageView and replace with a label */
+                 remove the imageView and replace with a label. */
 
                 itemImageView.removeFromSuperview()
                 
@@ -155,11 +155,11 @@ class ItemCell: UITableViewCell {
     }
 
     private func updateImageViewFor(item: Item) {
-        // If this is second time launching the app, use offline image to save bandwidth
+        // If this is second time launching the app, use offline image instead.
         if let localImage = item.offlineImage  {
             self.itemImageView.image = localImage
         } else if let urlString = item.data {
-            // If this is the first time launching the app, download image from the Web
+            // If this is the first time launching the app, download image from the Web.
             let url = URL(string: urlString)!.usingHTTPS!
 
             let request = ImageRequest(
@@ -181,11 +181,11 @@ class ItemCell: UITableViewCell {
                            into: itemImageView) { response in
                 switch response {
                     case .success(let imageResponse):
-                        // Set itemImageView's image to the image that comes back from server and save to disk
+                        // Set itemImageView's image to the image that comes back from server and save to disk.
                         self.itemImageView.image = imageResponse.image
                         PersistentManager.shared.writeImageToLocalFile(image: imageResponse.image, path: item.id)
                     case .failure(let error):
-                        // Log the Bad URL error to debug
+                        // Log the bad URL error to debug.
                         print("NO URL IMAGE: \(error.localizedDescription)")
                 }
             }

@@ -72,6 +72,5 @@ class PersistentManager {
         
         guard FileManager.default.fileExists(atPath: filePath) else { return nil }
         return UIImage(contentsOfFile: filePath)!
-
     }
 }
