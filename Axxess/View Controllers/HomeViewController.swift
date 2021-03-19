@@ -29,15 +29,31 @@ class HomeViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setUpUI()
+
         itemStore.getItems { result in
+            switch result {
+                case .success:
+                    print("SUCCESS")
+
+                case .failure(let error):
+                    print(" > >>>>> FAILURE: \(error.localizedDescription)")
+                    self.itemStore.items = PersistentManager.shared.getItemsFromDataBase()
+            }
+            print(self.itemStore.items.count)
+            
             self.tableView.reloadData()
+
         }
     }
 
     // MARK: - Table View DataSource & Delegate
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         switch segmentedControl.selectedSegmentIndex {
             case 0:
                 return itemStore.itemsWithText.count
@@ -48,22 +64,30 @@ class HomeViewController: UITableViewController {
         }
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.cellIdentifier, for: indexPath) as! ItemCell
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.cellIdentifier,for: indexPath) as! ItemCell
         cell.item = getItem(at: indexPath)
-
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let selectedItem = getItem(at: indexPath)
+        let detailVC = DetailViewController()
+        detailVC.item = selectedItem
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 
     // MARK: - Actions
 
-    func setUpUI() {
+    private func setUpUI() {
         navigationItem.title = "Axxess"
         tableView.tableHeaderView = segmentedControl
         tableView.rowHeight = UITableView.automaticDimension
@@ -72,7 +96,7 @@ class HomeViewController: UITableViewController {
         tableView.tableFooterView = UIView()
     }
 
-    func getItem(at indexPath: IndexPath) -> Item {
+    private func getItem(at indexPath: IndexPath) -> Item {
         let item: Item
         switch segmentedControl.selectedSegmentIndex {
             case 0:

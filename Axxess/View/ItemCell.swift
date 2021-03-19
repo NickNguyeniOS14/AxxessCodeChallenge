@@ -10,9 +10,9 @@ import UIKit
 import Nuke
 
 class ItemCell: UITableViewCell {
-
+    
     // MARK: - Properties
-
+    
     var item: Item? {
         didSet {
             if let item = item {
@@ -20,9 +20,9 @@ class ItemCell: UITableViewCell {
             }
         }
     }
-
+    
     static let cellIdentifier = "Item-Cell"
-
+    
     private lazy var itemTextLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +31,7 @@ class ItemCell: UITableViewCell {
         label.textAlignment = .center
         return label
     }()
-
+    
     private lazy var idLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +39,7 @@ class ItemCell: UITableViewCell {
         label.textAlignment = .left
         return label
     }()
-
+    
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -47,35 +47,35 @@ class ItemCell: UITableViewCell {
         label.textAlignment = .right
         return label
     }()
-
+    
     private lazy var itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-
+    
     // MARK: - Init
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+        
         addSubview(idLabel)
         addSubview(dateLabel)
         addSubview(itemImageView)
         addSubview(itemTextLabel)
-
+        
         addItemTextLabelConstraints()
         addItemImageViewContraints()
         addLabelsContraints()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: - Action
-
+    
     func addItemTextLabelConstraints() {
         itemTextLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(snp.leading)
@@ -83,9 +83,9 @@ class ItemCell: UITableViewCell {
             make.centerY.equalTo(snp.centerY)
         }
     }
-
-     private func addItemImageViewContraints() {
-
+    
+    private func addItemImageViewContraints() {
+        
         itemImageView.snp.makeConstraints { (make) in
             make.width.equalTo(200)
             make.height.equalTo(200)
@@ -93,8 +93,8 @@ class ItemCell: UITableViewCell {
             make.centerY.equalTo(snp.centerY)
         }
     }
-
-     private func addLabelsContraints() {
+    
+    private func addLabelsContraints() {
         idLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(snp.leading)
             make.top.equalTo(snp.top)
@@ -106,21 +106,22 @@ class ItemCell: UITableViewCell {
             make.width.equalTo(100)
         }
     }
-
+    
     private func updateViews(forItem item: Item) {
         switch item.type {
             case ItemType.image.rawValue:
-
+                
                 itemTextLabel.removeFromSuperview()
                 
                 addSubview(itemImageView)
-
+                
                 addItemImageViewContraints()
-
+                
                 idLabel.text = item.id
-
+                
                 dateLabel.text = item.date == "" ? "N/A" : item.date ?? "N/A"
-
+                
+                itemImageView.image = item.image
                 if let urlString = item.data {
                     let url = URL(string: urlString)!.usingHTTPS!
 
@@ -134,30 +135,35 @@ class ItemCell: UITableViewCell {
                     )
 
                     let options = ImageLoadingOptions(
-                        placeholder: UIImage(named: "404NoImage"),
+                        placeholder: placeHolderImage,
                         transition: .fadeIn(duration: 0.4)
                     )
 
-                    Nuke.loadImage(with: request, options: options, into: itemImageView) { response in
+                    Nuke.loadImage(with: request,
+                                   options: options,
+                                   into: itemImageView) { response in
                         switch response {
                             case .success(let imageResponse):
                                 self.itemImageView.image = imageResponse.image
+                                PersistentManager.shared.writeImageToLocalFile(image: imageResponse.image, path: item.id)
                             case .failure(let error):
-                                print(error)
+                                print("NO URL IMAGE: \(error.localizedDescription)")
+                                self.itemImageView.image = item.image ?? placeHolderImage
+
                         }
                     }
                 }
 
             default:
-
+                
                 itemImageView.removeFromSuperview()
-
+                
                 addSubview(itemTextLabel)
-
+                
                 addItemTextLabelConstraints()
-
+                
                 itemTextLabel.text = item.data?.trunc(length: 100).trimmingCharacters(in: .whitespacesAndNewlines)
-
+                
                 idLabel.text = item.id
                 
                 dateLabel.text = item.date

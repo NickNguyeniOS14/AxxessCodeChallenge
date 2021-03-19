@@ -23,19 +23,27 @@ class ItemStore {
     var items = [Item]()
 
     var sections: [String] {
-        return items.map { $0.type }.uniques
+        return items.map {
+            $0.type
+        }.uniques
     }
 
     var itemsWithText: [Item] {
-        return items.filter { $0.type == ItemType.text.rawValue && $0.data != nil && $0.data != String() }
+        return items.filter {
+            $0.type == ItemType.text.rawValue && $0.data != nil && $0.data != String()
+        }
     }
 
     var itemsWithImage: [Item] {
-        return items.filter { $0.type == ItemType.image.rawValue && $0.data != nil }
+        return items.filter {
+            $0.type == ItemType.image.rawValue && $0.data != nil
+        }
     }
 
     var otherItems: [Item] {
-        return items.filter { $0.type == ItemType.other.rawValue }
+        return items.filter {
+            $0.type == ItemType.other.rawValue
+        }
     }
 
     // MARK: - Action
@@ -44,19 +52,19 @@ class ItemStore {
 
         AF.request(endpoint, method: .get).responseJSON { response in
             guard let itemsData = response.data else {
-                completion(.failure(.noData))
-                return
+                completion(.failure(.badResponse))
+              return
             }
             do {
                 let decoder = JSONDecoder()
-                let items = try decoder.decode([Item].self, from: itemsData)
-                self.items = items
-                
+                let itemsFromServer = try decoder.decode([Item].self, from: itemsData)
+                self.items = itemsFromServer
+                PersistentManager.shared.saveItemToDatabase(items: self.items)
                 DispatchQueue.main.async {
-                    completion(.success(items))
+                    completion(.success(itemsFromServer))
                 }
             } catch {
-                completion(.failure(.badResponse))
+                completion(.failure(.noData))
             }
         }
     }
