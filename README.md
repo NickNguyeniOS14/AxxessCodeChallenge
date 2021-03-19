@@ -7,3 +7,17 @@ iOS Code Challenge for Axxess
   * Realm: Local database storage
   * Alamofire: Make networking calls
   
+# Requirements:
+  * iOS 13 + 
+  * Xcode 12
+
+# Screenshots:
+
+
+
+
+# What I would do if this is a production app:
+ * Write more tests, mocking for testing networking calls
+ * Make the UI more beautiful
+ 
+  
