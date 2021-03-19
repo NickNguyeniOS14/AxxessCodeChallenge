@@ -13,7 +13,11 @@ class DetailViewController: UIViewController {
 
     // MARK: - Properties
 
-    var item: Item?
+    var item: Item? {
+        didSet {
+            updateViews()
+        }
+    }
 
     lazy var itemTextView: UITextView = {
         let textView = UITextView()
@@ -25,7 +29,7 @@ class DetailViewController: UIViewController {
         return textView
     }()
 
-     lazy var idLabel: UILabel = {
+    lazy var idLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -33,7 +37,7 @@ class DetailViewController: UIViewController {
         return label
     }()
 
-     lazy var dateLabel: UILabel = {
+    lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -41,7 +45,7 @@ class DetailViewController: UIViewController {
         return label
     }()
 
-     lazy var itemImageView: UIImageView = {
+    lazy var itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
@@ -59,6 +63,25 @@ class DetailViewController: UIViewController {
         view.addSubview(idLabel)
         view.addSubview(itemImageView)
 
+        setUpViews()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if item?.type == .text || item?.type == .other {
+            itemImageView.removeFromSuperview()
+            itemTextView.snp.makeConstraints { (make) in
+                make.centerX.equalTo(view.snp.centerX)
+                make.centerY.equalTo(view.snp.centerY)
+                make.width.equalTo(view.frame.width)
+                make.height.equalTo(300)
+            }
+        }
+    }
+
+    // MARK: - Actions
+
+    fileprivate func setUpViews() {
         itemImageView.snp.makeConstraints { (make) in
             make.centerX.equalTo(view.snp.centerX)
             make.centerY.equalTo(view.snp.centerY)
@@ -77,24 +100,12 @@ class DetailViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.width.equalTo(100)
         }
+    }
 
+    fileprivate func updateViews() {
         itemTextView.text = item?.data?.trimmingCharacters(in: .whitespacesAndNewlines)
         dateLabel.text = item?.date == "" ? "N/A" : item?.date ?? "N/A"
         idLabel.text = item?.id
         itemImageView.image = item?.offlineImage ?? placeHolderImage
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if item?.type == .text || item?.type == .other {
-            itemImageView.removeFromSuperview()
-            itemTextView.snp.makeConstraints { (make) in
-                make.centerX.equalTo(view.snp.centerX)
-                make.centerY.equalTo(view.snp.centerY)
-                make.width.equalTo(view.frame.width)
-                make.height.equalTo(300)
-            }
-        }
-    }
 }
-

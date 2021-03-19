@@ -51,13 +51,10 @@ class HomeViewController: UITableViewController {
                         self.showAlert(forError: error)
                         break
                     }
-                    print(" >>>>>> FAILURE: \(error.localizedDescription)")
                     self.itemStore.items = PersistentManager.shared.getItemsFromDataBase()
             }
-            print(self.itemStore.items.count)
-            
-            self.tableView.reloadData()
 
+            self.tableView.reloadData()
         }
     }
 

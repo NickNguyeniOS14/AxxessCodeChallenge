@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B645F5752604BB6500B71671 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645F5742604BB6500B71671 /* Utility.swift */; };
 		B645F5822604C0D900B71671 /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645F5812604C0D900B71671 /* UIViewController + Ext.swift */; };
+		B645F5902604D7AC00B71671 /* AxxessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645F58F2604D7AC00B71671 /* AxxessTests.swift */; };
+		B645F5A52604DAE100B71671 /* AxxessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645F5A42604DAE100B71671 /* AxxessUITests.swift */; };
 		B667873F260367C300DDE49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667873E260367C300DDE49A /* AppDelegate.swift */; };
 		B6678741260367C300DDE49A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6678740260367C300DDE49A /* SceneDelegate.swift */; };
 		B6678743260367C300DDE49A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6678742260367C300DDE49A /* HomeViewController.swift */; };
@@ -26,11 +28,34 @@
 		D3216EBD3D7C9DE70965F8BD /* Pods_Axxess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDF566B1F146E7881CA5394 /* Pods_Axxess.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B645F5922604D7AC00B71671 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6678733260367C200DDE49A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B667873A260367C300DDE49A;
+			remoteInfo = Axxess;
+		};
+		B645F5A72604DAE200B71671 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6678733260367C200DDE49A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B667873A260367C300DDE49A;
+			remoteInfo = Axxess;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0E17780C4B16E2742B671A28 /* Pods-Axxess.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Axxess.release.xcconfig"; path = "Target Support Files/Pods-Axxess/Pods-Axxess.release.xcconfig"; sourceTree = "<group>"; };
 		0EDF566B1F146E7881CA5394 /* Pods_Axxess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Axxess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B645F5742604BB6500B71671 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		B645F5812604C0D900B71671 /* UIViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Ext.swift"; sourceTree = "<group>"; };
+		B645F58D2604D7AC00B71671 /* AxxessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AxxessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B645F58F2604D7AC00B71671 /* AxxessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxxessTests.swift; sourceTree = "<group>"; };
+		B645F5912604D7AC00B71671 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B645F5A22604DAE100B71671 /* AxxessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AxxessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B645F5A42604DAE100B71671 /* AxxessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxxessUITests.swift; sourceTree = "<group>"; };
+		B645F5A62604DAE100B71671 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B667873B260367C300DDE49A /* Axxess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Axxess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B667873E260367C300DDE49A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6678740260367C300DDE49A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +76,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B645F58A2604D7AC00B71671 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B645F59F2604DAE100B71671 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6678738260367C300DDE49A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -62,10 +101,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B645F58E2604D7AC00B71671 /* AxxessTests */ = {
+			isa = PBXGroup;
+			children = (
+				B645F58F2604D7AC00B71671 /* AxxessTests.swift */,
+				B645F5912604D7AC00B71671 /* Info.plist */,
+			);
+			path = AxxessTests;
+			sourceTree = "<group>";
+		};
+		B645F5A32604DAE100B71671 /* AxxessUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B645F5A42604DAE100B71671 /* AxxessUITests.swift */,
+				B645F5A62604DAE100B71671 /* Info.plist */,
+			);
+			path = AxxessUITests;
+			sourceTree = "<group>";
+		};
 		B6678732260367C200DDE49A = {
 			isa = PBXGroup;
 			children = (
 				B667873D260367C300DDE49A /* Axxess */,
+				B645F58E2604D7AC00B71671 /* AxxessTests */,
+				B645F5A32604DAE100B71671 /* AxxessUITests */,
 				B667873C260367C300DDE49A /* Products */,
 				D04AE7A525FABF3049186903 /* Pods */,
 				BE71F716E2A1E17752CC00B8 /* Frameworks */,
@@ -76,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				B667873B260367C300DDE49A /* Axxess.app */,
+				B645F58D2604D7AC00B71671 /* AxxessTests.xctest */,
+				B645F5A22604DAE100B71671 /* AxxessUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,15 +144,15 @@
 		B667873D260367C300DDE49A /* Axxess */ = {
 			isa = PBXGroup;
 			children = (
-				B66787532603685600DDE49A /* Application */,
-				B67BF61C26036CD500AE4167 /* Model */,
-				B66787562603686800DDE49A /* Resources */,
-				B6BDB28D260373D300EA7579 /* NetworkError */,
-				B66787582603689B00DDE49A /* View Controllers */,
 				B6BDB2A62603867D00EA7579 /* API */,
+				B66787532603685600DDE49A /* Application */,
 				B6BDB2A12603862C00EA7579 /* Extension */,
-				B6BDB2AC260391A200EA7579 /* View */,
+				B67BF61C26036CD500AE4167 /* Model */,
+				B6BDB28D260373D300EA7579 /* NetworkError */,
 				B66E44082604211A0058146F /* PersistentManager */,
+				B66787562603686800DDE49A /* Resources */,
+				B6BDB2AC260391A200EA7579 /* View */,
+				B66787582603689B00DDE49A /* View Controllers */,
 			);
 			path = Axxess;
 			sourceTree = "<group>";
@@ -196,6 +257,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B645F58C2604D7AC00B71671 /* AxxessTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B645F5942604D7AC00B71671 /* Build configuration list for PBXNativeTarget "AxxessTests" */;
+			buildPhases = (
+				B645F5892604D7AC00B71671 /* Sources */,
+				B645F58A2604D7AC00B71671 /* Frameworks */,
+				B645F58B2604D7AC00B71671 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B645F5932604D7AC00B71671 /* PBXTargetDependency */,
+			);
+			name = AxxessTests;
+			productName = AxxessTests;
+			productReference = B645F58D2604D7AC00B71671 /* AxxessTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B645F5A12604DAE100B71671 /* AxxessUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B645F5A92604DAE200B71671 /* Build configuration list for PBXNativeTarget "AxxessUITests" */;
+			buildPhases = (
+				B645F59E2604DAE100B71671 /* Sources */,
+				B645F59F2604DAE100B71671 /* Frameworks */,
+				B645F5A02604DAE100B71671 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B645F5A82604DAE200B71671 /* PBXTargetDependency */,
+			);
+			name = AxxessUITests;
+			productName = AxxessUITests;
+			productReference = B645F5A22604DAE100B71671 /* AxxessUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		B667873A260367C300DDE49A /* Axxess */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B667874F260367C300DDE49A /* Build configuration list for PBXNativeTarget "Axxess" */;
@@ -224,6 +321,14 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					B645F58C2604D7AC00B71671 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = B667873A260367C300DDE49A;
+					};
+					B645F5A12604DAE100B71671 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = B667873A260367C300DDE49A;
+					};
 					B667873A260367C300DDE49A = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -243,11 +348,27 @@
 			projectRoot = "";
 			targets = (
 				B667873A260367C300DDE49A /* Axxess */,
+				B645F58C2604D7AC00B71671 /* AxxessTests */,
+				B645F5A12604DAE100B71671 /* AxxessUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B645F58B2604D7AC00B71671 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B645F5A02604DAE100B71671 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6678739260367C300DDE49A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -302,6 +423,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B645F5892604D7AC00B71671 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B645F5902604D7AC00B71671 /* AxxessTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B645F59E2604DAE100B71671 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B645F5A52604DAE100B71671 /* AxxessUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6678737260367C300DDE49A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -325,6 +462,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B645F5932604D7AC00B71671 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B667873A260367C300DDE49A /* Axxess */;
+			targetProxy = B645F5922604D7AC00B71671 /* PBXContainerItemProxy */;
+		};
+		B645F5A82604DAE200B71671 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B667873A260367C300DDE49A /* Axxess */;
+			targetProxy = B645F5A72604DAE200B71671 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		B6678749260367C300DDE49A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -337,6 +487,84 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B645F5952604D7AC00B71671 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4939K9623X;
+				INFOPLIST_FILE = AxxessTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nicknguyen.developer.AxxessTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Axxess.app/Axxess";
+			};
+			name = Debug;
+		};
+		B645F5962604D7AC00B71671 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4939K9623X;
+				INFOPLIST_FILE = AxxessTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nicknguyen.developer.AxxessTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Axxess.app/Axxess";
+			};
+			name = Release;
+		};
+		B645F5AA2604DAE200B71671 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4939K9623X;
+				INFOPLIST_FILE = AxxessUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nicknguyen.developer.AxxessUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Axxess;
+			};
+			name = Debug;
+		};
+		B645F5AB2604DAE200B71671 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4939K9623X;
+				INFOPLIST_FILE = AxxessUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nicknguyen.developer.AxxessUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Axxess;
+			};
+			name = Release;
+		};
 		B667874D260367C300DDE49A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -498,6 +726,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B645F5942604D7AC00B71671 /* Build configuration list for PBXNativeTarget "AxxessTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B645F5952604D7AC00B71671 /* Debug */,
+				B645F5962604D7AC00B71671 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B645F5A92604DAE200B71671 /* Build configuration list for PBXNativeTarget "AxxessUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B645F5AA2604DAE200B71671 /* Debug */,
+				B645F5AB2604DAE200B71671 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B6678736260367C200DDE49A /* Build configuration list for PBXProject "Axxess" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
