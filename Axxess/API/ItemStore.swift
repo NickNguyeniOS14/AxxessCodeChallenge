@@ -24,6 +24,7 @@ class ItemStore {
 
     var itemsWithText: [Item] {
         return items.filter {
+            // Remove items with nil data and empty String
             $0.type == .text &&
             $0.data != nil &&
             $0.data != String()

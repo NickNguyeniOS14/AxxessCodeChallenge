@@ -16,7 +16,7 @@ class ItemCell: UITableViewCell {
     var item: Item? {
         didSet {
             if let item = item {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.002) {
                     self.updateViews(forItem: item)
                 }
             }
